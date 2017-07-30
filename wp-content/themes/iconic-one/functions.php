@@ -97,7 +97,6 @@ function themonic_scripts_styles() {
             'family' => 'Ubuntu:400,700',
             'subset' => $subsets,
         );
-        wp_enqueue_style( 'themonic-fonts', add_query_arg( $query_args, "$protocol://fonts.googleapis.com/css" ), array(), null );
     }
 	/*
 	 * Loads Themonic's main stylesheet and the custom stylesheet.
