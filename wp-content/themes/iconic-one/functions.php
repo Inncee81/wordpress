@@ -17,6 +17,8 @@
 if ( ! isset( $content_width ) ) {
 	$content_width = 665;
 }
+
+
 /*
  * Iconic One supported features and Registering defaults
  */
@@ -330,4 +332,12 @@ if ( is_admin() && isset($_GET['activated'] ) && $pagenow ==	"themes.php" )
 require_once( get_template_directory() . '/inc/iconic-one-options.php' );
 require_once( get_template_directory() . '/inc/extra-functions.php' );
 
+function rm_query_string( $src ){   
+    $parts = explode( '?ver', $src );
+    return $parts[0];
+}
 
+if ( !is_admin() ) {
+    add_filter( 'script_loader_src', 'rm_query_string', 15, 1 );
+    add_filter( 'style_loader_src', 'rm_query_string', 15, 1 );
+}
